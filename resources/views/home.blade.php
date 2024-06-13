@@ -25,7 +25,7 @@
                             <textarea class="form-control" name="description" placeholder="Enter Description" rows="10" required></textarea>
                         </div>
                     
-                        <button type="submit" name='add' class="btn btn-primary">Add</button>
+                        <button type="submit" name='add' class="btn btn-success mt-2">Add</button>
                     </form>
                 </div>
             </div>

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\WellcomeController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +16,7 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [WellcomeController::class,'index' ])->name('welcome');
 
 Auth::routes();
 
@@ -25,4 +25,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //post
 
-Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+Route::post('/posts/store', [PostController::class, 'store'])->name('posts.store');
+Route::get('/posts/{postId}/show', [PostController::class, 'show'])->name('posts.show');
+Route::get('/posts/all', [HomeController::class, 'allposts'])->name('posts.all');

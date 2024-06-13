@@ -7,63 +7,23 @@
     <div class="row">
         <!-- Blog entries-->
         <div class="">
-            <!-- Featured blog post-->
-            <div class="card mb-4">
-                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="Featured post" /></a>
-                <div class="card-body">
-                    <div class="small text-muted">January 1, 2023</div>
-                    <h2 class="card-title">Featured Post Title</h2>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                    <a class="btn btn-primary" href="#!">Read more →</a>
-                </div>
-            </div>
-            <!-- Nested row for non-featured blog posts-->
+            
             <div class="row">
+            @foreach ($posts as $post)
                 <div class="col-lg-6">
-                    <!-- Blog post-->
+                
                     <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="Post" /></a>
                         <div class="card-body">
-                            <div class="small text-muted">January 1, 2023</div>
-                            <h2 class="card-title h4">Post Title</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                            <a class="btn btn-primary" href="#!">Read more →</a>
+                            <div class="small text-muted">{{ date('Y-m-d',strtotime($post->created_at)) }}</div>
+                            <h2 class="text-center">{{ $post->title }}</h2>
+                            <p class="card-text text-center">{{ $post->description }}</p>
+                            <a class="btn btn-primary" href="{{ route('posts.show',$post->id) }}">Read more →</a>
                         </div>
-                    </div>
-                    <!-- Blog post-->
-                    <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="Post" /></a>
-                        <div class="card-body">
-                            <div class="small text-muted">January 1, 2023</div>
-                            <h2 class="card-title h4">Post Title</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                            <a class="btn btn-primary" href="#!">Read more →</a>
-                        </div>
-                    </div>
+                    </div>  
+                                 
                 </div>
-                <div class="col-lg-6">
-                    <!-- Blog post-->
-                    <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="Post" /></a>
-                        <div class="card-body">
-                            <div class="small text-muted">January 1, 2023</div>
-                            <h2 class="card-title h4">Post Title</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                            <a class="btn btn-primary" href="#!">Read more →</a>
-                        </div>
-                    </div>
-                    <!-- Blog post-->
-                    <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="Post" /></a>
-                        <div class="card-body">
-                            <div class="small text-muted">January 1, 2023</div>
-                            <h2 class="card-title h4">Post Title</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam.</p>
-                            <a class="btn btn-primary" href="#!">Read more →</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                @endforeach 
+            </div>                 
         </div>
     </div>
 </div>
